@@ -1,0 +1,47 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+#include <stdio.h>
+
+// Функція для знаходження кількості рівних дільників числа n
+int countDivisors(int n) {
+    int count = 0;
+    
+    // Ітеруємося по можливим дільникам від 1 до n/2
+    for (int i = 1; i <= n / 2; i++) {
+        // Якщо i є дільником n, то збільшуємо лічильник
+        if (n % i == 0) {
+            count++;
+        }
+    }
+    
+    // Повертаємо кількість рівних дільників
+    return count;
+}
+
+int main() {
+    int n, result;
+
+    printf("Введіть натуральне число n (1 < n < 150): ");
+    scanf("%d", &n);
+    
+    // Перевіряємо чи введене число є в межах 1 < n < 150
+    if (n <= 1 || n >= 150) {
+        printf("Неправильне введення. Будь ласка, введіть число від 1 до 150.\n");
+        return 1; // Повертаємо ненульове значення, щоб позначити помилку.
+    }
+
+    // Знаходимо кількість рівних дільників числа n
+    result = countDivisors(n);
+
+    printf("Кількість рівних дільників числа %d: %d\n", n, result);
+
+    return 0;
+}
